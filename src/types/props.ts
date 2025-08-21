@@ -16,7 +16,6 @@ export interface TabsProps {
   setActiveTab: (tabId: string) => void;
   tabs: { id: string; label: string }[];
 }
-
 // Пропсы для SlideContent
 export interface SlideContentProps {
   currentSlide: Slide | undefined;

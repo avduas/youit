@@ -13,16 +13,16 @@ export default function Sidebar({
 }: SidebarProps) {
   return (
     <Card
-      className={`transition-all relative ${sidebarOpen ? "w-72" : "w-14"} overflow-y-auto`}
+      className={`transition-all relative ${sidebarOpen ? "w-72" : "w-14"}`}
     >
-              <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top -right-2 transform -translate-y-1/2"
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-        >
-          {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-        </Button>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top -right-2 transform -translate-y-1/2"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+      </Button>
       <div className="px-4 py-2 text-m font-semibold text-gray-700">
         Слайды
       </div>
