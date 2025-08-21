@@ -1,42 +1,34 @@
-Lesson Viewer
+# Lesson Viewer
 
 An interactive lesson page with slide navigation, a sidebar, and tabs.
 
-Overview
+## Overview
 
 This project allows viewing educational slides with different content types:
 
-Tasks
-
-Theory
-
-Video
-
-Tests
+- **Tasks**
+- **Theory**
+- **Video**
+- **Tests**
 
 Features:
 
-Tabs to switch between lesson sections.
+- Tabs to switch between lesson sections.  
+- Sidebar with slide thumbnails and status indicators.  
+- Step-by-step slide navigation.  
+- Responsive and modern UI styling with Tailwind CSS.  
+- Icons for different slide types using `lucide-react`.  
 
-Sidebar with slide thumbnails and status indicators.
+## Technologies
 
-Step-by-step slide navigation.
+- React + TypeScript  
+- Tailwind CSS  
+- `lucide-react` for icons  
+- `Vite` / `Next.js` (depending on project setup)  
 
-Responsive and modern UI styling with Tailwind CSS.
+## Project Structure
 
-Icons for different slide types using lucide-react.
-
-Technologies
-
-React + TypeScript
-
-Tailwind CSS
-
-lucide-react for icons
-
-Vite / Next.js (depending on project setup)
-
-Project Structure
+```
 src/
 ├─ components/
 │  ├─ LessonPage.tsx       # Main lesson page
@@ -51,31 +43,33 @@ src/
 │  └─ props.ts             # Component props types
 └─ utils/
    └─ Icons.ts             # getTypeIcon function for slide icons
+```
 
-Installation
+## Installation
+
+```bash
 git clone <repo-url>
 cd lesson-viewer
 npm install
+```
 
-Running the Project
+## Running the Project
+
+```bash
 npm run dev   # start development server
 npm run build # build the project
+```
 
-Usage
+## Usage
 
-Open the lesson page.
+1. Open the lesson page.  
+2. Navigate between slides using the arrow buttons or the sidebar.  
+3. Use tabs to switch between lesson sections.  
+4. Slide status is displayed with color indicators (done / error / default).  
 
-Navigate between slides using the arrow buttons or the sidebar.
+## Customizing Slides and Tabs
 
-Use tabs to switch between lesson sections.
-
-Slide status is displayed with color indicators (done / error / default).
-
-Customizing Slides and Tabs
-
-src/data/lessonType.ts — add or modify slides.
-
-src/data/tabs.ts — change tab labels or order.
-
-Each slide has a SlideType:
-"Task" | "Theory" | "Video" | "Test"
+- `src/data/lessonType.ts` — add or modify slides.  
+- `src/data/tabs.ts` — change tab labels or order.  
+- Each slide has a `SlideType`:  
+  `"Task" | "Theory" | "Video" | "Test"`  
