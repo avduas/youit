@@ -24,6 +24,13 @@ export const slides: Slide[] = [
   },
   {
     id: 4,
+    title: "Философия",
+    type: "Видео",
+    status: "done",
+    content: "Video",
+  },
+  {
+    id: 5,
     title: "Итоговый тест",
     type: "Тест",
     status: "default",
