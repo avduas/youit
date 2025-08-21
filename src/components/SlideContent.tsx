@@ -8,7 +8,7 @@ export default function SlideContent({ slide }: Props) {
   if (!slide) return null;
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto">
+    <div className="flex-1 p-2 overflow-y-auto">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-sm font-medium text-gray-500">
           Слайд {slide.id.toString().padStart(2, "0")} - {slide.type} |{" "}

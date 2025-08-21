@@ -24,14 +24,6 @@ export default function LessonPage() {
       {/* Вкладки */}
       <div className="flex items-center justify-between border-b px-6">
         <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-
-        {/* Кнопки переключения слайдов */}
-        <SlideNav 
-          activeSlide={activeSlide} 
-          setActiveSlide={setActiveSlide} 
-          minId={minId} 
-          maxId={maxId} 
-        />
       </div>
 
       {/* Основная область */}
@@ -46,9 +38,23 @@ export default function LessonPage() {
         />
 
         {/* Контент слайда */}
-        <div className="flex-1 p-6 overflow-y-auto">
-          {currentSlide && <SlideContent slide={currentSlide} />}
+        <div className="flex-1 flex flex-row p-6 overflow-y-auto gap-4">
+          {/* Контент слайда */}
+          <div className="flex-1">
+            {currentSlide && <SlideContent slide={currentSlide} />}
+          </div>
+
+          {/* Кнопки переключения справа */}
+          <div className="flex flex-col gap-2 justify-start">
+            <SlideNav
+              activeSlide={activeSlide}
+              setActiveSlide={setActiveSlide}
+              minId={minId}
+              maxId={maxId}
+            />
+          </div>
         </div>
+
       </div>
     </div>
   );

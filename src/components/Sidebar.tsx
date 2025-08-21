@@ -15,6 +15,17 @@ export default function Sidebar({
     <Card
       className={`transition-all relative ${sidebarOpen ? "w-72" : "w-14"} overflow-y-auto`}
     >
+              <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top -right-2 transform -translate-y-1/2"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+        </Button>
+      <div className="px-4 py-2 text-m font-semibold text-gray-700">
+        Слайды
+      </div>
       <CardContent className="p-2">
         {slides.map(slide => {
           const isActive = activeSlide === slide.id;
@@ -22,18 +33,18 @@ export default function Sidebar({
             <div
               key={slide.id}
               className={`relative flex items-center gap-3 p-3 rounded-lg cursor-pointer mb-2
-                ${isActive ? "bg-gray-100" : "hover:bg-gray-50"}`}
+    bg-[rgb(240,241,242)]
+    ${isActive ? "bg-gray-100" : "hover:bg-[rgb(225,226,227)]"}`}
               onClick={() => setActiveSlide(slide.id)}
             >
               {/* Полоса состояния */}
               <div
-                className={`absolute left-0 top-0 h-full w-1.5 rounded-l-md ${
-                  slide.status === "done"
-                    ? "bg-green-500"
-                    : slide.status === "error"
+                className={`absolute left-0 top-0 h-full w-1.5 rounded-l-md ${slide.status === "done"
+                  ? "bg-green-500"
+                  : slide.status === "error"
                     ? "bg-red-500"
                     : "bg-transparent"
-                }`}
+                  }`}
               />
 
               {/* Номер */}
@@ -56,14 +67,7 @@ export default function Sidebar({
           );
         })}
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-1/2 -right-1 transform -translate-y-1/2 z-40"
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-        >
-          {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-        </Button>
+
       </CardContent>
     </Card>
   );
