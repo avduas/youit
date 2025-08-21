@@ -69,13 +69,6 @@ export default function App() {
 }
 ```
 
-The sidebar and slide navigation are fully controlled via React state:
-
-```ts
-const [activeSlide, setActiveSlide] = useState(1);
-const [activeTab, setActiveTab] = useState("main");
-```
-
 ## Styling
 
 - Buttons and tabs use **shadcn/ui** components.  
