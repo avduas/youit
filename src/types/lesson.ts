@@ -2,12 +2,17 @@ export type SlideType = "Задача" | "Теория" | "Видео" | "Тес
 
 export type SlideStatus = "done" | "error" | "default";
 
+export interface SlideContentBlock {
+  type: "p" | "h2" | "h3";
+  text: string;
+}
+
 export interface Slide {
   id: number;
   title: string;
   type: SlideType;
   status?: SlideStatus;
-  content: string;
+  content: SlideContentBlock[];
 }
 
 export interface Tab {

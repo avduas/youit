@@ -19,7 +19,18 @@ export default function SlideContent({ slide }: Props) {
       </div>
 
       <div className="text-base text-gray-800 leading-relaxed space-y-4">
-        {slide.content}
+        {slide.content.map((block, i) => {
+          switch (block.type) {
+            case "p":
+              return <p key={i}>{block.text}</p>;
+            case "h2":
+              return <h2 key={i} className="font-bold text-lg">{block.text}</h2>;
+            case "h3":
+              return <h3 key={i} className="font-semibold text-base">{block.text}</h3>;
+            default:
+              return null;
+          }
+        })}
       </div>
     </div>
   );
