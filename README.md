@@ -1,75 +1,91 @@
 # Lesson Viewer
 
-An interactive lesson page with slide navigation, a sidebar, and tabs.
+A simple lesson viewer application built with **React**, **TypeScript**, and **shadcn/ui** components.  
+It allows navigation between slides, displays slide content, and supports multiple tabs.
 
-## Overview
+## Features
 
-This project allows viewing educational slides with different content types:
+- Navigate between slides using previous/next buttons.  
+- Sidebar with a list of slides and their statuses.  
+- Custom icons for different slide types (Task, Theory, Video, Test).  
+- Tabs for organizing lesson sections: Main, Tasks, Results, Links, Stats.  
+- Smooth UI interactions using **shadcn/ui** components.  
+- Fully responsive layout.
 
-- **Tasks**
-- **Theory**
-- **Video**
-- **Tests**
+## Installation
 
-Features:
+1. Clone the repository:
 
-- Tabs to switch between lesson sections.  
-- Sidebar with slide thumbnails and status indicators.  
-- Step-by-step slide navigation.  
-- Responsive and modern UI styling with Tailwind CSS.  
-- Icons for different slide types using `lucide-react`.  
+```bash
+git clone <repo-url>
+cd <repo-folder>
+```
 
-## Technologies
+2. Install dependencies:
 
-- React + TypeScript  
-- Tailwind CSS  
-- `lucide-react` for icons  
-- `Vite` / `Next.js` (depending on project setup)  
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
 
 ## Project Structure
 
 ```
 src/
 ├─ components/
-│  ├─ LessonPage.tsx       # Main lesson page
-│  ├─ Sidebar.tsx          # Sidebar with slides
+│  ├─ LessonPage.tsx       # Main lesson page layout
+│  ├─ Sidebar.tsx          # Slide navigation sidebar
 │  ├─ Tabs.tsx             # Tabs component
-│  └─ SlideContent.tsx     # Slide content
+│  ├─ SlideContent.tsx     # Slide content renderer
+│  ├─ SlideNav.tsx         # Previous/Next buttons (shadcn/ui)
 ├─ data/
-│  ├─ lessonType.ts        # Array of slides
-│  └─ tabs.ts              # Array of tabs
+│  ├─ lessonType.ts        # Slide data
+│  ├─ tabs.ts              # Tab definitions
 ├─ types/
-│  ├─ lesson.ts            # Slide, SlideType, and Tab types
-│  └─ props.ts             # Component props types
-└─ utils/
-   └─ Icons.ts             # getTypeIcon function for slide icons
-```
-
-## Installation
-
-```bash
-git clone <repo-url>
-cd lesson-viewer
-npm install
-```
-
-## Running the Project
-
-```bash
-npm run dev   # start development server
-npm run build # build the project
+│  ├─ lesson.ts            # Type definitions for slides
+│  ├─ props.ts             # Component props interfaces
+├─ utils/
+│  ├─ Icons.ts             # Function to get slide type icons
 ```
 
 ## Usage
 
-1. Open the lesson page.  
-2. Navigate between slides using the arrow buttons or the sidebar.  
-3. Use tabs to switch between lesson sections.  
-4. Slide status is displayed with color indicators (done / error / default).  
+Import `LessonPage` into your app:
 
-## Customizing Slides and Tabs
+```tsx
+import LessonPage from "@/components/LessonPage";
 
-- `src/data/lessonType.ts` — add or modify slides.  
-- `src/data/tabs.ts` — change tab labels or order.  
-- Each slide has a `SlideType`:  
-  `"Task" | "Theory" | "Video" | "Test"`  
+export default function App() {
+  return <LessonPage />;
+}
+```
+
+The sidebar and slide navigation are fully controlled via React state:
+
+```ts
+const [activeSlide, setActiveSlide] = useState(1);
+const [activeTab, setActiveTab] = useState("main");
+```
+
+## Styling
+
+- Buttons and tabs use **shadcn/ui** components.  
+- Custom colors, hover states, and disabled states are applied via `className`.  
+- Tabs maintain straight edges (no oval rounding).
+
+## Dependencies
+
+- [React](https://reactjs.org/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [shadcn/ui](https://ui.shadcn.com/)  
+- [Lucide React](https://lucide.dev/) for icons
+
